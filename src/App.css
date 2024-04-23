@@ -1,17 +1,13 @@
-input {
-  display: block;
-  margin-bottom: 1rem;
-}
-
 * {
   box-sizing: border-box;
 }
 
-bory {
+body {
+  padding-top: 4rem;
   margin: 0px;
   color: #333;
   --type-first: Helvetica, Arial, sans-serif;
-  --type-second: "Spectral", Georgia;
+  --type-second: 'Spectral', Georgia;
   font-family: var(--type-first);
 }
 
@@ -23,7 +19,8 @@ p {
   margin: 0px;
 }
 
-ul {
+ul,
+li {
   list-style: none;
   padding: 0px;
   margin: 0px;
@@ -42,8 +39,12 @@ input {
   color: #333;
 }
 
+a {
+  text-decoration: none;
+}
+
 .container {
-  max-width: 1200px;
+  max-width: 50rem;
   padding: 0 1rem;
   margin: 0 auto;
 }
