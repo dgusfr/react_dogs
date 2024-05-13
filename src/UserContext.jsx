@@ -1,35 +1,28 @@
-import React, { Children, useCallback, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import {
-  TOKEN_POST,
-  TOKEN_VALIDATE_POST,
-  TOKEN_VALIDATE_POST,
-  USER_GET,
-} from "./api";
+import React from 'react';
+import { TOKEN_POST, TOKEN_VALIDATE_POST, USER_GET } from './api';
+import { useNavigate } from 'react-router-dom';
 
 export const UserContext = React.createContext();
 
-export const UserStorage = ({ Children }) => {
+export const UserStorage = ({ children }) => {
   const [data, setData] = React.useState(null);
   const [login, setLogin] = React.useState(null);
-  const [loading, setLoading] = React.useState(null);
+  const [loading, setLoading] = React.useState(false);
   const [error, setError] = React.useState(null);
   const navigate = useNavigate();
 
-  //resetando metricas ao valor inicial para o logout do usario
-  const userLogout = useCallback(
+  const userLogout = React.useCallback(
     async function () {
       setData(null);
       setError(null);
       setLoading(false);
       setLogin(false);
-      window.localStorage.removeItem("token");
-      navigate("/login");
+      window.localStorage.removeItem('token');
+      navigate('/login');
     },
-    [navigate]
+    [navigate],
   );
 
-  //Etapa de realização do login
   async function getUser(token) {
     const { url, options } = USER_GET(token);
     const response = await fetch(url, options);
@@ -45,11 +38,10 @@ export const UserStorage = ({ Children }) => {
       const { url, options } = TOKEN_POST({ username, password });
       const tokenRes = await fetch(url, options);
       if (!tokenRes.ok) throw new Error(`Error: ${tokenRes.statusText}`);
-      //Extraindo o valor da chave token por desestruturação
       const { token } = await tokenRes.json();
-      window.localStorage.setItem("token", token);
+      window.localStorage.setItem('token', token);
       await getUser(token);
-      navigate("/conta");
+      navigate('/conta');
     } catch (err) {
       setError(err.message);
       setLogin(false);
@@ -57,21 +49,18 @@ export const UserStorage = ({ Children }) => {
       setLoading(false);
     }
   }
-  //Autologin, usuario permanece logado mesmo se recarregar a página.
-  useEffect(() => {
+
+  React.useEffect(() => {
     async function autoLogin() {
-      const token = window.localStorage.getIten("token");
+      const token = window.localStorage.getItem('token');
       if (token) {
         try {
-          // setError e setLoading inicializam desta maneira quando o suario faz o login:
           setError(null);
           setLoading(true);
           const { url, options } = TOKEN_VALIDATE_POST(token);
           const response = await fetch(url, options);
-          //throw new Error() interrompe a execução do código e sinalizando que algo deu errado.
-          if (!response.ok) throw new Error("token invalido");
+          if (!response.ok) throw new Error('Token inválido');
           await getUser(token);
-          const json = await response.json();
         } catch (err) {
           userLogout();
         } finally {
@@ -80,15 +69,13 @@ export const UserStorage = ({ Children }) => {
       }
     }
     autoLogin();
-  }, [userLogout()]);
+  }, [userLogout]);
 
   return (
     <UserContext.Provider
       value={{ userLogin, userLogout, data, error, loading, login }}
     >
-      {Children}
+      {children}
     </UserContext.Provider>
   );
 };
-
-export default UserContext;
