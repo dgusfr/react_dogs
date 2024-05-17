@@ -1,15 +1,15 @@
-import React from "react";
-import Input from "../Forms/Input";
-import Button from "../Forms/Button";
-import Error from "../Helper/Error";
-import useForm from "../../Hooks/useForm";
-import { USER_POST } from "../../Api";
-import { UserContext } from "../../UserContext";
-import useFetch from "../../Hooks/useFetch";
+import React from 'react';
+import Input from '../Forms/Input';
+import Button from '../Forms/Button';
+import Error from '../Helper/Error';
+import useForm from '../../Hooks/useForm';
+import { USER_POST } from '../../Api';
+import { UserContext } from '../../UserContext';
+import useFetch from '../../Hooks/useFetch';
 
 const LoginCreate = () => {
   const username = useForm();
-  const email = useForm("email");
+  const email = useForm('email');
   const password = useForm();
 
   const { userLogin } = React.useContext(UserContext);
@@ -34,11 +34,10 @@ const LoginCreate = () => {
         <Input label="Email" type="email" name="email" {...email} />
         <Input label="Senha" type="password" name="password" {...password} />
         {loading ? (
-          <Button disable>Cadastrando...</Button>
+          <Button disabled>Cadastrando...</Button>
         ) : (
           <Button>Cadastrar</Button>
         )}
-        <Button>Cadastrar</Button>
         <Error error={error} />
       </form>
     </section>
