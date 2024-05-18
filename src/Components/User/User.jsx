@@ -1,4 +1,5 @@
 import React from 'react';
+<<<<<<< HEAD
 import UserHeader from './UserHeader';
 import { Routes, Route } from 'react-router-dom';
 import Feed from '../Feed/Feed';
@@ -16,6 +17,11 @@ const User = () => {
       </Routes>
     </section>
   );
+=======
+
+const User = () => {
+  return <div>Usuário</div>;
+>>>>>>> ed243be146a2a31697c959b0a770ff6b52fc83ac
 };
 
 export default User;
