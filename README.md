@@ -4,7 +4,7 @@ DOGS é uma aplicação desenvolvida em React que permite aos usuários fazer lo
 
 Projeto realizado junto ao curso de React da Origamid® , durante meus estudos de React e Next.js.
 
-## Logo
+## Interface
 
 <div align="center">
   <img src="img/logo.png" alt="Imagem do Projeto" width="600">
