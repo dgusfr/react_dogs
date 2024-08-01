@@ -10,4 +10,7 @@ export default defineConfig({
       external: ["victory"],
     },
   },
+  server: {
+    open: true,
+  },
 });
