@@ -24,7 +24,7 @@ Projeto realizado junto ao curso de React da Origamid® , durante meus estudos d
 
 <div style="display: flex; flex-direction: row;">
   <div style="margin-right: 20px; display: flex; justify-content: flex-start;">
-    <img src="img/react.png" alt="Logo React" width="300"/>
+    <img src="img/react.png" alt="Logo React" width="200"/>
   </div>
 </div>
 
