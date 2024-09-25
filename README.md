@@ -2,7 +2,7 @@
 
 DOGS é uma aplicação desenvolvida em React que permite aos usuários fazer login, postar fotos e visualizar fotos, enquanto consome uma API.
 
-Projeto realizado junto ao curso de React da Origamid® , durante meus estudos de React js.
+Projeto realizado junto ao curso de React da Origamid®, durante meus estudos de React js.
 
 ## Interface
 
@@ -34,7 +34,7 @@ Projeto realizado junto ao curso de React da Origamid® , durante meus estudos d
 
 ## Descrição
 
-Este projeto foi desenvolvido para uma aplicação de faculdade e consiste em uma plataforma onde os usuários podem se registrar, fazer login, postar fotos de seus cães e visualizar as fotos postadas por outros usuários.
+Este projeto é uma aplicação que consiste em uma plataforma onde os usuários podem se registrar, fazer login, postar fotos de seus cães e visualizar as fotos postadas por outros usuários.
 
 ## Funcionalidades
 
@@ -47,7 +47,7 @@ Este projeto foi desenvolvido para uma aplicação de faculdade e consiste em um
 
 1. Clone o repositório em sua máquina local:
    ```sh
-   git clone https://github.com/seu-usuario/dogs.git
+   git clone https://github.com/dgusfr/dogs.git
    ```
 2. Navegue até a pasta do projeto:
    ```sh
