@@ -1,6 +1,6 @@
 # DOGS - Aplicação React
 
-DOGS é uma aplicação desenvolvida em React que permite aos usuários fazer login, postar fotos e visualizar fotos, utilizando uma API específica para este fim.
+DOGS é uma aplicação desenvolvida em React que permite aos usuários fazer login, postar fotos e visualizar fotos, enquanto consome uma API.
 
 Projeto realizado junto ao curso de React da Origamid® , durante meus estudos de React js.
 
